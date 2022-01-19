@@ -73,9 +73,19 @@
                                     <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
                                     <a aria-label="Compare" class="action-btn hover-up" href="shop-compare.html"><i class="fi-rs-shuffle"></i></a>
                                 </div>
+                                @if($item->brand_id == 1)   
                                 <div class="product-badges product-badges-position product-badges-mrg">
                                     <span class="hot">{{$item->brands->name}}</span>
                                 </div>
+                                @elseif ($item->brand_id == 2) 
+                                <div class="product-badges product-badges-position product-badges-mrg">
+                                    <span class="new">{{$item->brands->name}}</span>
+                                </div>
+                                @else
+                                <div class="product-badges product-badges-position product-badges-mrg">
+                                    <span class="sale">{{$item->brands->name}}</span>
+                                </div>
+                                @endif
                             </div>
                             <div class="product-content-wrap">
                                 <div class="product-category">
