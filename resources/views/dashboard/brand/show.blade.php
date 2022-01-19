@@ -19,7 +19,7 @@
                         <textarea name="description" placeholder="Type here" class="form-control" rows="4" disabled>{{$brand->description}}</textarea>
                     </div>
                     <div class="form-group mb-4">
-                        <img src="/image/{{$brand->image}}" alt="image" width="300px">
+                        <img src="/brand/{{$brand->image}}" alt="image" width="300px">
                     </div>
                 </div>
             </div>

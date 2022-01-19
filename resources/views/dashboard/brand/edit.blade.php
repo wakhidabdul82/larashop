@@ -38,7 +38,7 @@
                             <div class="form-group mb-4">
                                 <label class="form-label">Images</label>
                                 <input name="image" class="form-control" type="file">
-                                <img src="/image/{{$brand->image}}" alt="image" width="300px">
+                                <img src="/brand/{{$brand->image}}" alt="image" width="300px">
                             </div>
                             <div class="formgroup mb-4">
                                 <button type="submit" class="btn btn-primary">Submit</button>

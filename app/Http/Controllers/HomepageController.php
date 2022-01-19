@@ -24,7 +24,7 @@ class HomepageController extends Controller
 
     public function shop()
     {
-        $products = Product::with('brands', 'categories')->orderBy('id', 'DESC')->get();
+        $products = Product::with('brands', 'categories')->orderBy('updated_at', 'DESC')->get();
         return view('homepage.shop',compact('products'));
     }
     

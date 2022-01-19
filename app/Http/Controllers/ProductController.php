@@ -88,12 +88,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        $where = array('id' => $id);
-        $product  = Product::where($where)->first();
-  
-        return Response::json($product);
+        $categories = Category::all();
+        $brands = Brand::all();
+        return view('dashboard.product.edit', compact('product', 'categories', 'brands'));
     }
 
     /**
@@ -105,7 +104,34 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'sku' => 'required',
+            'color' => 'required',
+            'size' => 'required',
+            'category_id' => 'required',
+            'brand_id' => 'required',
+            'stock' => 'required',
+            'regular_price' => 'required',
+            'promo_price' => 'required',
+        ]);
+  
+        $input = $request->all();
+
+        if ($image = $request->file('image')) {
+            $destinationPath = 'product/';
+            File::delete($destinationPath . $product->image);
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['image'] = "$profileImage";
+        }else{
+            unset($input['image']);
+        }
+
+        $product->update($input);
+        
+        return redirect('/admin/products');
     }
 
     /**
@@ -114,12 +140,11 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        $data = Product::where('id',$id)->first(['thumbnail']);
-        \File::delete('public/product/'.$data->thumbnail);
-        $product = Product::where('id',$id)->delete();
-      
-        return Response::json($product);
+        $path = "product/";
+        File::delete($path . $product->image);
+        $product->delete();
+        return redirect('/admin/products');
     }
 }

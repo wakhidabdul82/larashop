@@ -60,7 +60,7 @@ class BrandController extends Controller
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
+            $destinationPath = 'brand/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
@@ -111,7 +111,8 @@ class BrandController extends Controller
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
+            $destinationPath = 'brand/';
+            File::delete($destinationPath . $brand->image);
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
@@ -131,6 +132,8 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
+        $path = "brand/";
+        File::delete($path . $brand->image);
         $brand->delete();
         return redirect('/admin/brands');
     }

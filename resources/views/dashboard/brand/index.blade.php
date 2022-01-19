@@ -49,7 +49,7 @@
                     <div class="col-xl-2 col-lg-3 col-md-4 col-6">
                         <figure class="card border-1">
                             <div class="card-header bg-white text-center">
-                                <img height="76" src="{{asset('image/'.$item['image'])}}" class="img-fluid" alt="Logo">
+                                <img height="76" src="{{asset('brand/'.$item['image'])}}" class="img-fluid" alt="Logo">
                             </div>
                             <figcaption class="card-body text-center">
                                 <h6 class="card-title m-0 mb-2">{{$item['name']}}</h6>
