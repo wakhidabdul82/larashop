@@ -17,6 +17,10 @@
                         <input type="text" placeholder="Type here" name="title" class="form-control" id="product_name">
                     </div>
                     <div class="mb-4">
+                        <label for="product_slug" class="form-label">Slug</label>
+                        <input type="text" placeholder="exp: product-title-here" name="slug" class="form-control" id="product_slug">
+                    </div>
+                    <div class="mb-4">
                         <label class="form-label">Full description</label>
                         <textarea placeholder="Type here" name="description" class="form-control" rows="4"></textarea>
                     </div>

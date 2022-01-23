@@ -45,6 +45,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'slug' => 'required',
             'description' => 'required',
             'sku' => 'required',
             'color' => 'required',
@@ -106,6 +107,7 @@ class ProductController extends Controller
     {
         $request->validate([
             'title' => 'required',
+            'slug' => 'required',
             'description' => 'required',
             'sku' => 'required',
             'color' => 'required',

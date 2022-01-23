@@ -18,6 +18,7 @@
   var colums = [
     {data : 'DT_RowIndex', class : 'text-center', orderable: true},
     {data : 'name',orderable: true},
+    {data : 'slug',orderable: true},
     {data : 'description', orderable: true},
     {render: function (index, row, data, meta) {
       return `
@@ -46,6 +47,9 @@ var controller = new Vue({
             const _this = this
             _this.table = $('#example').DataTable({
               "scrollX": true,
+              "scrollCollapse" : true,
+              "paging": false,
+              "autoWidth": false,
                 ajax: {
                 url: _this.apiUrl,
                 type: 'GET',
@@ -91,7 +95,7 @@ var controller = new Vue({
 
 <div id="controller">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-sm-10">
             <div class="card mb-4">
                 <header class="card-header">
                     <div class="row gx-3">
@@ -107,6 +111,7 @@ var controller = new Vue({
                                 <tr>
                                     <th>#ID</th>
                                     <th scope="col">Name</th>
+                                    <th scope="col">Slug</th>
                                     <th scope="col">Description</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
@@ -133,6 +138,13 @@ var controller = new Vue({
                   <input type="text" class="form-control" name="name" :value="data.name" placeholder="Name">
                 </div>
                 @error('name')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+                <div class="form-group">
+                  <label class="form-label">Slug</label>
+                  <input type="text" class="form-control" name="slug" :value="data.slug" placeholder="Slug">
+                </div>
+                @error('slug')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 <div class="form-group">

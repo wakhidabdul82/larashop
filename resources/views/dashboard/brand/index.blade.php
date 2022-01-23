@@ -82,6 +82,10 @@
                     <input type="text" name="name" placeholder="Type here" class="form-control">
                 </div>
                 <div class="form-group mb-4">
+                    <label class="form-label">Slug</label>
+                    <input type="text" name="slug" placeholder="Type here" class="form-control">
+                </div>
+                <div class="form-group mb-4">
                     <label class="form-label">Description</label>
                     <textarea name="description" placeholder="Type here" class="form-control" rows="4"></textarea>
                 </div>

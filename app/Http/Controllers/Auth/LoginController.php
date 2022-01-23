@@ -27,7 +27,14 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/home';
+    protected $redirectTo = '/';
+    protected function redirectTo()
+    {
+        if (auth()->user()->role == 'admin') {
+            return '/admin/home';
+        }
+        return '/';
+    }
 
     /**
      * Create a new controller instance.
@@ -47,12 +54,19 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $this->guard()->logout();
- 
-        $request->session()->flush();
- 
-        $request->session()->regenerate();
- 
-        return redirect('/admin');
+        
+        if(auth()->user()->role == 'admin') {
+            $this->guard()->logout();
+            $request->session()->flush();
+            $request->session()->regenerate();
+            return redirect('/admin');
+        }elseif(auth()->user()->role =='customer')  {
+            $this->guard()->logout();
+            $request->session()->flush();
+            $request->session()->regenerate();
+            return redirect('/');
+        }else {
+            return redirect('/');
+        }
     }
 }

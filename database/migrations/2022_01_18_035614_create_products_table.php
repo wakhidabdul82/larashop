@@ -15,7 +15,8 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('title',64);
+            $table->string('title',64)->unique();
+            $table->string('slug')->nullable()->unique();
             $table->text('description');
             $table->string('sku');
             $table->string('color')->nullable();
@@ -23,8 +24,8 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('brand_id');
             $table->integer('stock');
-            $table->integer('regular_price');
-            $table->integer('promo_price');
+            $table->double('regular_price', 8,2);
+            $table->double('promo_price', 8,2);
             $table->string('image');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->foreign('brand_id')->references('id')->on('brands');

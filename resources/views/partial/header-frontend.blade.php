@@ -32,7 +32,26 @@
                                     <li><a href="#"><img src="{{asset('assets/frontend/imgs/theme/flag-ru.png')}}" alt="">Pусский</a></li>
                                 </ul>
                             </li>
+                            @auth
+                            <li>
+                                <a class="language-dropdown-active" href="#"> Hi {{Auth::user()->name}} <i class="fi-rs-angle-small-down"></i></a>
+                                <ul class="language-dropdown">
+                                    <li><a href="/dashboard">Dashboard</a></li>
+                                    <div class="dropdown-divider"></div>
+                                    <li>
+                                    <a class="dropdown-item text-danger" href="{{ route('logout') }}" 
+                                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();"><i class="material-icons md-exit_to_app"></i>{{ __('Logout') }}</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                    </li>
+                                </ul>
+                            </li>
+                            @endauth
+                            @guest
                             <li><i class="fi-rs-user"></i><a href="/login">Log In</a>&nbsp/&nbsp<a href="/register">Sign Up</a></li>
+                            @endguest
                         </ul>
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dashboard;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -25,6 +26,12 @@ class DashboardController extends Controller
     public function welcome()
     {
         return view('dashboard.welcome');
+    }
+
+    public function customer()
+    {
+        $customers = Customer::all();
+        return view('dashboard.customer', compact('customers'));
     }
 
     /**

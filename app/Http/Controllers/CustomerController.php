@@ -2,35 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Brand;
+use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use File;
 
-class BrandController extends Controller
+class CustomerController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-    
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $brands = Brand::all();
-        return view('dashboard.brand.index', compact('brands'));
-    }
 
-    public function api()
+    
+     public function index()
     {
-        $data = Brand::orderBy('id', 'desc')->get();
-        $datatables = datatables()->of($data)
-                    ->addIndexColumn();
-        
-        return $datatables->make(true);
+        $customer = Customer::where('user_id', Auth::id())->first();
+        return view('customer.index', compact('customer'));
     }
 
     /**
@@ -38,9 +28,9 @@ class BrandController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('customer.create');
     }
 
     /**
@@ -52,69 +42,70 @@ class BrandController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
-            'description' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone_number' => 'required',
+            'address' => 'required',
+            'birthday' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-  
-        $input = $request->all();
 
+        $input = $request->all();
         if ($image = $request->file('image')) {
-            $destinationPath = 'brand/';
+            $destinationPath = 'customer/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
         }
-
-        Brand::create($input);
-
-        return redirect('/admin/brands');
+        
+        Customer::create($input);
+        return redirect('/dashboard');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Brand  $brand
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Customer $customer)
     {
-        $brand = Brand::findOrFail($id);
-        return view('dashboard.brand.show', compact('brand'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Brand  $brand
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Brand $brand)
+    public function edit(Customer $customer)
     {
-        return view('dashboard.brand.edit', compact('brand'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Brand  $brand
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Brand $brand)
+    public function update(Request $request, Customer $customer)
     {
         $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
-            'description' => 'required'
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'phone_number' => 'required',
+            'address' => 'required',
+            'birthday' => 'required',
         ]);
 
         $input = $request->all();
 
         if ($image = $request->file('image')) {
-            $destinationPath = 'brand/';
-            File::delete($destinationPath . $brand->image);
+            $destinationPath = 'customer/';
+            File::delete($destinationPath . $customer->image);
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['image'] = "$profileImage";
@@ -122,21 +113,18 @@ class BrandController extends Controller
             unset($input['image']);
         }
 
-        $brand->update($input);
-        return redirect('/admin/brands');
+        $customer->update($input);
+        return redirect('/dashboard');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Brand  $brand
+     * @param  \App\Models\Customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Brand $brand)
+    public function destroy(Customer $customer)
     {
-        $path = "brand/";
-        File::delete($path . $brand->image);
-        $brand->delete();
-        return redirect('/admin/brands');
+        //
     }
 }

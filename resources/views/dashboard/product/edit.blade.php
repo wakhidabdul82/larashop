@@ -18,6 +18,10 @@
                         <input type="text" placeholder="Type here" name="title" class="form-control" id="product_name" value="{{$product->title}}">
                     </div>
                     <div class="mb-4">
+                        <label for="product_slug" class="form-label">Slug</label>
+                        <input type="text" placeholder="Type here" name="slug" class="form-control" id="product_slug" value="{{$product->slug}}">
+                    </div>
+                    <div class="mb-4">
                         <label class="form-label">Full description</label>
                         <textarea placeholder="Type here" name="description" class="form-control" rows="4">{{$product->description}}</textarea>
                     </div>
@@ -93,14 +97,14 @@
                             <div class="mb-4">
                                 <label class="form-label">Regular price</label>
                                 <div class="row gx-2">
-                                    <input placeholder="$" name="regular_price" type="number" class="form-control" value="{{$product->regular_price}}">
+                                    <input placeholder="$" name="regular_price" type="number" step="0.01" class="form-control" value="{{$product->regular_price}}">
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="mb-4">
                                 <label class="form-label">Promotional price</label>
-                                <input placeholder="$" name="promo_price" type="number" class="form-control" value="{{$product->promo_price}}">
+                                <input placeholder="$" name="promo_price" type="number" step="0.01" class="form-control" value="{{$product->promo_price}}">
                             </div>
                         </div>
                         <div class="col-lg-4">

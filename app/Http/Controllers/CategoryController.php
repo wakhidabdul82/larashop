@@ -53,6 +53,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'slug' => 'required',
             'description' => 'required',
         ], [
             'name.required' => 'Name must filled!',
@@ -96,6 +97,7 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'slug' => 'required',
             'description' => 'required',
         ], [
             'name.required' => 'Name must filled!',
