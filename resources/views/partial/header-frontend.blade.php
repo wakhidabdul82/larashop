@@ -108,16 +108,12 @@
                         </a>
                         <div class="categori-dropdown-wrap categori-dropdown-active-large">
                             <ul>
-                                <li>
-                                    <a href="#"><i class="evara-font-dress"></i>Women's Clothing</a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class="evara-font-tshirt"></i>Men's Clothing</a>
-                                </li>
-                                <li><a href="#"><i class="evara-font-desktop"></i> Bag & Suitcase</a></li>
-                                <li><a href="#"><i class="evara-font-diamond"></i> Jewellery</a></li>
-                                <li><a href="#"><i class="evara-font-home"></i>Hat & Cap</a></li>
-                                <li><a href="#"><i class="evara-font-high-heels"></i>Shoe & Sandals</a></li>
+                                <li><a href="/shop?category=woman-fashion"><i class="evara-font-dress"></i>Women's Clothing</a></li>
+                                <li><a href="/shop?category=man-clothes"><i class="evara-font-tshirt"></i>Men's Clothing</a></li>
+                                <li><a href="/shop?category=bag-and-suitcase"><i class="evara-font-desktop"></i> Bag & Suitcase</a></li>
+                                <li><a href="/shop?category=jewellery"><i class="evara-font-diamond"></i> Jewellery</a></li>
+                                <li><a href="/shop?category=hat-and-cap"><i class="evara-font-home"></i>Hat & Cap</a></li>
+                                <li><a href="/shop?category=shoe-and-sandals"><i class="evara-font-high-heels"></i>Shoe & Sandals</a></li>
                                 <li><a href="#"><i class="evara-font-cpu"></i> Other Special</a></li>
                             </ul>
                         </div>

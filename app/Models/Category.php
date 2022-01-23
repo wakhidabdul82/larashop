@@ -15,4 +15,9 @@ class Category extends Model
     {
         return $this->hasMany(Product::class, 'category_id');
     }
+
+    public static function findBySlug($slug)
+    {
+        return static::where('slug', $slug)->first();
+    }
 }

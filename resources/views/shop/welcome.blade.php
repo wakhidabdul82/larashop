@@ -95,15 +95,14 @@
                     <div class="product-cart-wrap small hover-up">
                         <div class="product-img-action-wrap">
                             <div class="product-img product-img-zoom">
-                                <a href="#">
+                                <a href="{{ $item->path() }}">
                                     <img class="default-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                     <img class="hover-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                 </a>
                             </div>
                             <div class="product-action-1">
                                 <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="#" tabindex="0"><i class="fi-rs-heart"></i></a>
-                                <a aria-label="Compare" class="action-btn small hover-up" href="#" tabindex="0"><i class="fi-rs-shuffle"></i></a>
-                            </div>
+                                </div>
                             @if ($item->brand_id == 1)
                             <div class="product-badges product-badges-position product-badges-mrg">
                                 <span class="hot">{{($item->brands['name'])}}</span>
@@ -119,7 +118,7 @@
                             @endif
                         </div>
                         <div class="product-content-wrap">
-                            <h2><a href="#">{{Str::limit($item['title'], 12)}}</a></h2>
+                            <h2><a href="{{ $item->path() }}">{{Str::limit($item['title'], 12)}}</a></h2>
                             <div class="rating-result" title="90%">
                                 <span>
                                 </span>
@@ -176,7 +175,7 @@
                                     <div class="product-cart-wrap">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                <a href="#">
+                                                <a href="{{ $item->path() }}">
                                                     <img class="default-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                                     <img class="hover-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                                 </a>
@@ -202,7 +201,7 @@
                                             <div class="product-category">
                                                 <a href="#">{{$item->categories['name']}}</a>
                                             </div>
-                                            <h2><a href="#">{{Str::limit($item['title'], 12)}}</a></h2>
+                                            <h2><a href="{{ $item->path() }}">{{Str::limit($item['title'], 12)}}</a></h2>
                                             <div class="rating-result" title="90%">
                                                 <span>
                                                     <span>70%</span>
@@ -231,7 +230,7 @@
                                     <div class="product-cart-wrap">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                <a href="#">
+                                                <a href="{{ $item->path() }}">
                                                     <img class="default-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                                     <img class="hover-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                                 </a>
@@ -257,7 +256,7 @@
                                             <div class="product-category">
                                                 <a href="#">{{$item->categories['name']}}</a>
                                             </div>
-                                            <h2><a href="#">{{Str::limit($item['title'], 12)}}</a></h2>
+                                            <h2><a href="{{ $item->path() }}">{{Str::limit($item['title'], 12)}}</a></h2>
                                             <div class="rating-result" title="90%">
                                                 <span>
                                                     <span>70%</span>
@@ -284,7 +283,7 @@
                                     <div class="product-cart-wrap">
                                         <div class="product-img-action-wrap">
                                             <div class="product-img product-img-zoom">
-                                                <a href="#">
+                                                <a href="{{ $item->path() }}">
                                                     <img class="default-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                                     <img class="hover-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                                 </a>
@@ -310,7 +309,7 @@
                                             <div class="product-category">
                                                 <a href="#">{{$item->categories['name']}}</a>
                                             </div>
-                                            <h2><a href="#">{{Str::limit($item['title'], 12)}}</a></h2>
+                                            <h2><a href="{{ $item->path() }}">{{Str::limit($item['title'], 12)}}</a></h2>
                                             <div class="rating-result" title="90%">
                                                 <span>
                                                     <span>70%</span>

@@ -4529,6 +4529,14 @@ table .product-thumbnail img {
   background: #ff8ff8;
 }
 
+.product-color-blue {
+  background: #00A1FF;
+}
+
+.product-color-black {
+  background: #2C2E30;
+}
+
 .detail-gallery .slick-slider {
   background-color: #000;
   margin-bottom: 30px;

@@ -15,4 +15,9 @@ class Brand extends Model
     {
         return $this->hasMany(Product::class, 'brand_id');
     }
+
+    public static function findBySlug($slug)
+    {
+        return static::where('slug', $slug)->first();
+    }
 }

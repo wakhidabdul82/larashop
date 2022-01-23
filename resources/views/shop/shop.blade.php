@@ -4,8 +4,10 @@
 <div class="page-header breadcrumb-wrap">
     <div class="container">
         <div class="breadcrumb">
-            <a href="/" rel="nofollow">Home</a>
+            <a class="section">Home
             <span></span> Shop
+            <span></span> {{$categoryName}}
+            </a>
         </div>
     </div>
 </div>
@@ -64,7 +66,7 @@
                         <div class="product-cart-wrap mb-30">
                             <div class="product-img-action-wrap">
                                 <div class="product-img product-img-zoom">
-                                    <a href="shop-product-right.html">
+                                    <a href="{{ $item->path() }}">
                                         <img class="default-img" src="{{asset('product/'.$item->image)}}" alt="">
                                         <img class="hover-img" src="{{asset('product/'.$item->image)}}" alt="">
                                     </a>
@@ -91,7 +93,7 @@
                                 <div class="product-category">
                                     <a href="shop-grid-right.html">{{$item->categories->name}}</a>
                                 </div>
-                                <h2><a href="shop-product-right.html">{{$item->title}}</a></h2>
+                                <h2><a href="{{ $item->path() }}">{{$item->title}}</a></h2>
                                 <div class="rating-result" title="90%">
                                     <span>
                                         <span>90%</span>
@@ -131,13 +133,11 @@
                 <div class="widget-category mb-30">
                     <h5 class="section-title style-1 mb-30 wow fadeIn animated">Category</h5>
                     <ul class="categories">
-                        <li><a href="shop-grid-right.html">Shoes & Bags</a></li>
-                        <li><a href="shop-grid-right.html">Blouses & Shirts</a></li>
-                        <li><a href="shop-grid-right.html">Dresses</a></li>
-                        <li><a href="shop-grid-right.html">Swimwear</a></li>
-                        <li><a href="shop-grid-right.html">Beauty</a></li>
-                        <li><a href="shop-grid-right.html">Jewelry & Watch</a></li>
-                        <li><a href="shop-grid-right.html">Accessories</a></li>
+                        @foreach ($categories as $category)
+                        <li><a href="{{ route('shop.index', ['category' => $category->slug]) }}">{{$category->name}}</a></li>
+                        @endforeach
+                        <div class="dropdown-divider"></div>
+                        <li><a href="/shop">View All</a></li>
                     </ul>
                 </div>
                 <!-- Fillter By Price -->
@@ -185,26 +185,7 @@
                     <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> Fillter</a>
                 </div>
                 <!-- Product sidebar Widget -->
-                <div class="sidebar-widget product-sidebar  mb-30 p-30 bg-grey border-radius-10">
-                    <div class="widget-header position-relative mb-20 pb-10">
-                        <h5 class="widget-title mb-10">New products</h5>
-                        <div class="bt-1 border-color-1"></div>
-                    </div>
-                    @foreach (array_slice($products->toArray(), 0, 3) as $item)
-                    <div class="single-post clearfix">
-                        <div class="image">
-                            <img src="{{('product/'.$item['image'])}}" alt="#">
-                        </div>
-                        <div class="content pt-10">
-                            <h5><a href="shop-product-detail.html">{{$item['title']}}</a></h5>
-                            <p class="price mb-0 mt-5">@currency($item['promo_price'])</p>
-                            <div class="product-rate">
-                                <div class="product-rating" style="width:90%"></div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                </div>
+                
             </div>
         </div>
     </div>
