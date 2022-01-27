@@ -97,7 +97,7 @@
                                         <h5 class="mb-0">Carts</h5>
                                     </div>
                                     <div class="card-body">
-                                        <p>You are on carts page</p>
+                                        <p>Please go to <a href="/cart"><strong>Cart</strong></a> page to see your list product!</p>
                                     </div>
                                 </div>
                             </div>  

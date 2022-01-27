@@ -84,10 +84,32 @@
                                 </a>
                             </div>
                             <div class="header-action-icon-2">
-                                <a class="mini-cart-icon" href="shop-cart.html">
+                                <a class="mini-cart-icon" href="/cart">
                                     <img alt="Larashop" src="{{asset('assets/frontend/imgs/theme/icons/icon-cart.svg')}}">
-                                 <!--   <span class="pro-count blue">2</span> -->
+                                    <span class="pro-count blue">{{shopCart()}}</span> 
                                 </a>
+                                <div class="cart-dropdown-wrap cart-dropdown-hm2">
+                                    <ul>
+                                        @forelse (shopItem() as $item) 
+                                            <li>
+                                                <div class="shopping-cart-img">
+                                                    <a href="shop-product-right.html"><img alt="Evara" src="{{asset('product/'.$item->products->image)}}"></a>
+                                                </div>
+                                                <div class="shopping-cart-title">
+                                                    <h4><a href="shop-product-right.html">{{Str::limit($item->products->title, 17)}}</a></h4>
+                                                    <h4>@currency($item->products->promo_price)</h4>
+                                                </div>
+                                            </li> 
+                                        @empty
+                                            <p>Your Basket is Empty</p>
+                                        @endforelse
+                                    </ul>
+                                    <div class="shopping-cart-footer">
+                                        <div class="shopping-cart-button">
+                                            <a href="/cart" class="outline">View cart</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

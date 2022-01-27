@@ -10,10 +10,13 @@
     <meta property="og:type" content="">
     <meta property="og:url" content="">
     <meta property="og:image" content="">
+    <!-- CSRF Check -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/frontend/imgs/theme/favicon.png')}}">
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{asset('assets/frontend/css/main.css')}}">
+    
     @stack('style')
 </head>
 
@@ -62,6 +65,7 @@
     <!-- Template  JS -->
     <script src="{{asset('assets/frontend/js/main.js')}}"></script>
     <script src="{{asset('assets/frontend/js/shop.js')}}"></script>
+    <script src="{{asset('assets/frontend/js/custom.js')}}"></script>
     @stack('script')
 </body>
 </html>

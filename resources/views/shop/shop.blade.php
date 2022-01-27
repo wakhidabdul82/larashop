@@ -4,10 +4,9 @@
 <div class="page-header breadcrumb-wrap">
     <div class="container">
         <div class="breadcrumb">
-            <a class="section">Home
+            <a href="index.html" rel="nofollow">Home</a>
             <span></span> Shop
             <span></span> {{$categoryName}}
-            </a>
         </div>
     </div>
 </div>
@@ -104,7 +103,7 @@
                                     <span class="old-price">@currency($item->regular_price)</span>
                                 </div>
                                 <div class="product-action-1 show">
-                                    <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.html"><i class="fi-rs-shopping-bag-add"></i></a>
+                                    <button aria-label="Add To Cart" class="action-btn hover-up"><i class="fi-rs-shopping-bag-add"></i></button>
                                 </div>
                             </div>
                         </div>

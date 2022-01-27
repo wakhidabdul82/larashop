@@ -955,6 +955,16 @@ button.submit:hover, button[type='submit']:hover {
   border-color: #41506b;
 }
 
+.btn.btn-info, .button.btn-info {
+  background-color: #15DAE8;
+  border-color: #15DAE8;
+}
+
+.btn.btn-warning, .button.btn-warning {
+  border-color: #ff9800;
+  color: orange;
+}
+
 .btn.btn-facebook, .button.btn-facebook {
   background: #3b5998;
   border-color: #3b5998;

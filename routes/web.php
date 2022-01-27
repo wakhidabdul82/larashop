@@ -8,6 +8,8 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ShopController;
+use App\Http\Controllers\CartController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +47,12 @@ Route::resource('dashboard', CustomerController::class)->middleware('checkRole:c
 Route::prefix('dashboard')->group(function () {
     //
 });
+
+Route::post('/add-to-cart', 'App\Http\Controllers\CartController@addProduct')->name('cart.addproduct');
+Route::post('/update-cart-item', 'App\Http\Controllers\CartController@updateProduct')->name('cart.updateproduct');
+Route::post('/delete-cart-item', 'App\Http\Controllers\CartController@deleteProduct')->name('cart.deleteproduct');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/cart', 'App\Http\Controllers\CartController@viewCart')->name('cart.viewcart');
+});
+
+
