@@ -98,17 +98,25 @@
                                     <div class="detail-extralink">
                                         <input type="hidden" value="{{$product->id}}" class="product_id">
                                         <div class="mr-5" style="width: 15%">
-                                            <input type="number" min="1" class="qty_product">
+                                            <input type="number" min="1" max="{{$product->stock}}" class="qty_product">
                                         </div>
                                         <div class="product-extra-link2">
+                                            @if ($product->stock >0)
                                             <button type="submit" class="button button-add-to-cart addToCartBtn">Add to cart</button>
+                                            @else
+                                            <button type="submit" class="button button-add-to-cart addToCartBtn" disabled>Add to cart</button>
+                                            @endif
                                             <a aria-label="Add To Wishlist" class="action-btn hover-up" href="shop-wishlist.html"><i class="fi-rs-heart"></i></a>
                                         </div>
                                     </div>
                                         
                                     <ul class="product-meta font-xs color-grey mt-10">
                                         <li class="mb-5">SKU: <a href="#">{{$product->sku}}</a></li>
-                                        <li>Availability:<span class="in-stock text-success ml-5">{{$product->stock}} Items In Stock</span></li>
+                                        @if ($product->stock >0)
+                                        <li>Availability:<span class="in-stock text-success ml-5">{{$product->stock}} Items In Stock</span></li>    
+                                        @else
+                                        <li>Availability:<span class="in-stock text-danger ml-5">Out of Stock</span></li> 
+                                        @endif
                                     </ul>
                                 </div>
                                 <!-- Detail Info -->

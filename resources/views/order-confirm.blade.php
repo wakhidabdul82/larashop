@@ -16,24 +16,14 @@
 </head>
 
 <body>
-    <main class="main page-404">
+    <main class="main">
         <div class="container">
-            <div class="row align-items-center height-100vh text-center">
+            <div class="row align-items-center mt-100 text-center">
                 <div class="col-lg-8 m-auto">
-                    <p class="mb-50"><img src="{{asset('assets/frontend/imgs/theme/logo.png')}}" alt="" class="hover-up"></p>
-                    <h2 class="mb-30">Welcome to Admin Page</h2>
-                    <p class="font-lg text-grey-700 mb-30">
-                        You are on the admin page. To continue to the dashboard page, you just need to click the button below.
-                    </p>
-                    @if (Route::has('login'))
-                    <div>
-                        @auth
-                        <a class="btn btn-default submit-auto-width font-xs hover-up" href="{{ url('/admin/home') }}">Dashboard</a>
-                        @else
-                        <a class="btn btn-default submit-auto-width font-xs hover-up" href="{{ route('login') }}">Login</a>  
-                        @endauth
-                    </div>
-                    @endif
+                    <p class="mb-50"><img src="{{asset('assets/frontend/imgs/theme/logo.png')}}" alt="" class="hover-up" style="width: 200px"></p>
+                    <h4>Your order Confirmed!</h4> <span class="font-weight-bold d-block mt-4">Hello, {{Auth::user()->name}}</span> <span>You order has been confirmed and will be shipped in next days!</span><br>
+                    <span>Note : Please check your detail order on <strong>Dashboard</strong> page then find <strong>Order</strong> tab.</span><br><br>
+                    <a href="/dashboard" class="btn btn-sm">Dashboard</a>
                 </div>
             </div>
         </div>
@@ -43,6 +33,15 @@
     <script src="{{asset('assets/frontend/js/vendor/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('assets/frontend/js/plugins/jquery-ui.js')}}"></script>
     <script src="{{asset('assets/frontend/js/main.js')}}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @if(session('status'))
+        <script>
+            swal("{{session('status')}}", {
+                icon :"success",
+                timer : 3000,
+            });
+        </script>
+    @endif
 </body>
 </html>
 

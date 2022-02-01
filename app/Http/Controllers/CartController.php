@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Cart;
 use Auth;
 
+
 class CartController extends Controller
 {
     public function addProduct(Request $request)
@@ -16,21 +17,15 @@ class CartController extends Controller
 
         if(Auth::check()) {
             $prod_check = Product::where('id', $product_id)->first();
-
             if ($prod_check) {
-
                 if(Cart::where('product_id', $product_id)->where('user_id', Auth::id())->exists()) {
-
                     return response()->json(['status' => $prod_check->title." Already on cart"]);
-
-                } else {
-                    
+                } else {                
                     $cartItem = new Cart();
                     $cartItem->user_id = Auth::id();
                     $cartItem->product_id = $product_id;
                     $cartItem->product_qty = $product_qty;
-                    $cartItem->save();
-    
+                    $cartItem->save();    
                     return response()->json(['status' => $prod_check->title." Added to cart"]);
                 }
             }
@@ -59,16 +54,12 @@ class CartController extends Controller
                 $cartItem->product_id = $product_id;
                 $cartItem->product_qty = $product_qty;
                 $cartItem->save();
-                return response()->json(['status' => "Product update successfully"]);
+                return response()->json(['status' => "Update Data Success" ]);
             }
-
         }else {
-
             return response()->json(['status' => "Login to Continue"]);
-
         }
     }
-
 
     public function deleteProduct(Request $request)
     {

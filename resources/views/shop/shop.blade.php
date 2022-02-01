@@ -111,17 +111,8 @@
                     @endforeach
                 </div>
                 <!--pagination-->
-                <div class="pagination-area mt-15 mb-sm-5 mb-lg-0">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-start">
-                            <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                            <li class="page-item"><a class="page-link" href="#">02</a></li>
-                            <li class="page-item"><a class="page-link" href="#">03</a></li>
-                            <li class="page-item"><a class="page-link dot" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">16</a></li>
-                            <li class="page-item"><a class="page-link" href="#"><i class="fi-rs-angle-double-small-right"></i></a></li>
-                        </ul>
-                    </nav>
+                <div class="mt-20">
+                    {!! $products->appends(Request::all())->links() !!}
                 </div>
             </div>
             <div class="col-lg-3 primary-sidebar sticky-sidebar">
@@ -181,7 +172,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="shop-grid-right.html" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> Fillter</a>
+                    <a href="#" class="btn btn-sm btn-default"><i class="fi-rs-filter mr-5"></i> Fillter</a>
                 </div>
                 <!-- Product sidebar Widget -->
                 

@@ -66,6 +66,8 @@
     <script src="{{asset('assets/frontend/js/main.js')}}"></script>
     <script src="{{asset('assets/frontend/js/shop.js')}}"></script>
     <script src="{{asset('assets/frontend/js/custom.js')}}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @include('partial.status')
     @stack('script')
 </body>
 </html>

@@ -57,7 +57,7 @@
             </form>
           </div>
         </div>
-        <div class="col-sm-6 px-0 d-none d-sm-block">
+        <div class="col-sm-6 px-0 d-none d-sm-block sticky">
           <img src="{{asset('assets/frontend/imgs/page/avatar-4.jpg')}}" alt="login image" class="login-img">
         </div>
       </div>

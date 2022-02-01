@@ -9,7 +9,7 @@
                 <div class="card-header">
                     <h4>General Description</h4>
                 </div>
-                <form action="/admin/products/{{$product->id}}" method="POST" enctype="multipart/form-data">
+                <form action="/admin/products/{{$product->slug}}" method="POST" enctype="multipart/form-data">
                 <div class="card-body">
                     @csrf
                     @method('PUT')

@@ -9,6 +9,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OrderController;
 
 
 /*
@@ -21,38 +23,35 @@ use App\Http\Controllers\CartController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 Route::get('/', 'App\Http\Controllers\ShopController@welcome');
 Route::get('/dashboard', 'App\Http\Controllers\CustomerController@index');
-Route::get('shop', 'App\Http\Controllers\ShopController@index')->name('shop.index');
-Route::get('shop/{product}', 'App\Http\Controllers\ShopController@show')->name('shop.show');
+Route::get('/shop', 'App\Http\Controllers\ShopController@index')->name('shop.index');
+Route::get('/shop/{product}', 'App\Http\Controllers\ShopController@show')->name('shop.show');
 
-
-Auth::routes();
-
-Route::prefix('admin')->group(function () {
-    Route::get('/', 'App\Http\Controllers\DashboardController@welcome');
-    Route::get('/customers', 'App\Http\Controllers\DashboardController@customer')->middleware('checkRole:admin');
-    Auth::routes();
-    Route::get('home', 'App\Http\Controllers\DashboardController@index')->middleware('checkRole:admin');
-    Route::resource('categories', CategoryController::class)->middleware('checkRole:admin');
-    Route::resource('brands', BrandController::class)->middleware('checkRole:admin');
-    Route::resource('products', ProductController::class)->middleware('checkRole:admin');
-
-
-    Route::get('api/categories', [App\Http\Controllers\CategoryController::class, 'api']);
-    Route::get('api/brands', [App\Http\Controllers\BrandController::class, 'api']);
+Route::get('/admin', 'App\Http\Controllers\DashboardController@welcome');
+Route::middleware('checkRole:admin')->group(function () {
+    Route::get('/admin/customers', 'App\Http\Controllers\DashboardController@customer');
+    Route::get('/admin/home', 'App\Http\Controllers\DashboardController@index')->name('admin.home');
+    Route::resource('/admin/categories', CategoryController::class);
+    Route::resource('/admin/brands', BrandController::class);
+    Route::resource('/admin/products', ProductController::class);
+    Route::resource('/admin/orders', OrderController::class);
+    Route::get('/admin/transactions', 'App\Http\Controllers\OrderController@transaction');
+    Route::get('/admin/api/categories', 'App\Http\Controllers\CategoryController@api');
+    Route::get('/admin/api/brands', 'App\Http\Controllers\BrandController@api');
 });
 
-Route::resource('dashboard', CustomerController::class)->middleware('checkRole:customer');
-Route::prefix('dashboard')->group(function () {
-    //
-});
-
-Route::post('/add-to-cart', 'App\Http\Controllers\CartController@addProduct')->name('cart.addproduct');
-Route::post('/update-cart-item', 'App\Http\Controllers\CartController@updateProduct')->name('cart.updateproduct');
-Route::post('/delete-cart-item', 'App\Http\Controllers\CartController@deleteProduct')->name('cart.deleteproduct');
+Route::post('/add-to-cart', 'App\Http\Controllers\CartController@addProduct');
 Route::middleware(['auth'])->group(function () {
-    Route::get('/cart', 'App\Http\Controllers\CartController@viewCart')->name('cart.viewcart');
+    Route::resource('dashboard', CustomerController::class)->middleware('checkRole:customer');
+    Route::get('/cart', 'App\Http\Controllers\CartController@viewCart');
+    Route::post('/update-cart-item', 'App\Http\Controllers\CartController@updateProduct');
+    Route::post('/delete-cart-item', 'App\Http\Controllers\CartController@deleteProduct');
+    Route::get('/checkout', 'App\Http\Controllers\CheckoutController@index');
+    Route::post('/place-order', 'App\Http\Controllers\CheckoutController@placeorder');
+    Route::get('/order-confirm', 'App\Http\Controllers\CheckoutController@orderconfirm');
+    Route::get('/dashboard/order-detail/{id}', 'App\Http\Controllers\CustomerController@vieworder');
 });
 
 

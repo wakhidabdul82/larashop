@@ -6,39 +6,27 @@ use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
+use App\Models\Order;
+use App\Models\OrderItem;
 use File;
 
 class CustomerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     
      public function index()
     {
+        $orders = Order::where('user_id', Auth::id())->get();
         $customer = Customer::where('user_id', Auth::id())->first();
-        return view('customer.index', compact('customer'));
+        return view('customer.index', compact('customer', 'orders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create(Request $request)
     {
         return view('customer.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -62,35 +50,7 @@ class CustomerController extends Controller
         return redirect('/dashboard');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Customer $customer)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Customer $customer)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, Customer $customer)
     {
         $request->validate([
@@ -117,14 +77,10 @@ class CustomerController extends Controller
         return redirect('/dashboard');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Customer  $customer
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Customer $customer)
+    public function vieworder($id)
     {
-        //
+        $categories = Category::all();
+        $orders = Order::where('id', $id)->where('user_id', Auth::id())->first();
+        return view('customer.vieworder', compact('orders', 'categories'));
     }
 }

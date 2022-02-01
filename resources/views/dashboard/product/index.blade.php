@@ -78,8 +78,8 @@
                         <span>{{$item->stock}} item</span>
                     </div>
                     <div class="col-lg-2 col-sm-2 col-4 col-action text-end">
-                        <a href="/admin/products/{{$item['id']}}/edit" class="btn btn-sm font-sm rounded btn-brand mb-1"><i class="material-icons md-edit"></i> Edit </a>
-                        <form action="/admin/products/{{$item['id']}}" method="POST">
+                        <a href="/admin/products/{{$item['slug']}}/edit" class="btn btn-sm font-sm rounded btn-brand mb-1"><i class="material-icons md-edit"></i> Edit </a>
+                        <form action="/admin/products/{{$item['slug']}}" method="POST">
                             @csrf
                             @method('DELETE')
                             <input type="submit" class="btn btn-sm font-sm btn-light rounded" value="Delete">

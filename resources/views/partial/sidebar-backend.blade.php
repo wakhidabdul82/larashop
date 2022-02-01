@@ -1,6 +1,6 @@
 <aside class="navbar-aside" id="offcanvas_aside">
     <div class="aside-top">
-        <a href="index.html" class="brand-wrap">
+        <a href="/admin" class="brand-wrap">
             <img src="{{asset('assets/backend/imgs/theme/logo.png')}}" class="logo" alt="Larashop Dashboard">
         </a>
         <div>
@@ -9,13 +9,13 @@
     </div>
     <nav>
         <ul class="menu-aside">
-            <li class="menu-item active">
+            <li class="menu-item {{request()->is('admin/home') ? 'active' : ''}} ">
                 <a class="menu-link" href="/admin/home"> <i class="icon material-icons md-home"></i>
                     <span class="text">Dashboard</span>
                 </a>
             </li>
-            <li class="menu-item has-submenu">
-                <a class="menu-link" href="products"> <i class="icon material-icons md-shopping_bag"></i>
+            <li class="menu-item has-submenu {{ (request()->is('admin/products*')) ? 'active' : '' }}">
+                <a class="menu-link" href="/admin/products"> <i class="icon material-icons md-shopping_bag"></i>
                     <span class="text">Products</span>
                 </a>
                 <div class="submenu">
@@ -24,17 +24,17 @@
                     <a href="/admin/products/create">Create Product</a>
                 </div>
             </li>
-            <li class="menu-item">
+            <li class="menu-item {{request()->is('admin/orders') ? 'active' : ''}}">
                 <a class="menu-link" href="/admin/orders"> <i class="icon material-icons md-shopping_cart"></i>
                     <span class="text">Orders</span>
                 </a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item {{request()->is('admin/transactions') ? 'active' : ''}}">
                 <a class="menu-link" href="/admin/transactions"> <i class="icon material-icons md-monetization_on"></i>
                     <span class="text">Transactions</span>
                 </a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item {{request()->is('admin/customers') ? 'active' : ''}}">
                 <a class="menu-link" href="/admin/customers"> <i class="icon material-icons md-person"></i>
                     <span class="text">Customers</span>
                 </a>
@@ -44,7 +44,7 @@
                     <span class="text">Reviews</span>
                 </a>
             </li>
-            <li class="menu-item">
+            <li class="menu-item {{request()->is('admin/brands') ? 'active' : ''}}">
                 <a class="menu-link" href="{{url('/admin/brands')}}"> <i class="icon material-icons md-stars"></i>
                     <span class="text">Brands</span> </a>
             </li>

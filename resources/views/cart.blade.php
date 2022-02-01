@@ -42,7 +42,11 @@
                                 <input type="hidden" class="product_id" value="{{$item->product_id}}">
                                 <td class="text-center" data-title="Stock">
                                     <div>
-                                        <input type="number" min="1" value="{{ $item->product_qty }}" class="form-control qty_product">
+                                        @if ($item->products->stock >= $item->product_qty)  
+                                        <input type="number" min="1" max="{{$item->products->stock}}" value="{{ $item->product_qty }}" class="form-control qty_product">
+                                        @else
+                                        <p class="text-danger text-sm">Out of Stock</p>
+                                        @endif
                                     </div>
                                 </td>
                                 <td class="text-right" data-title="Cart">
@@ -58,6 +62,35 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="row justify-content-end mt-15">
+                    <div class="col-5 cart-action text-end">
+                        <div class="heading_s1 mb-3">
+                            <h4>Cart Totals</h4>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td class="cart_total_label" style="width:40%">Cart Subtotal</td>
+                                        <td class="cart_total_amount"><span class="font-lg fw-900 text-brand">@currency($total)</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart_total_label" style="width:40%">Shipping</td>
+                                        <td class="cart_total_amount"> <i class="ti-gift mr-5"></i> Free forever</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="cart_total_label" style="width:40%">Total</td>
+                                        <td class="cart_total_amount"><strong><span class="font-xl fw-900 text-brand">@currency($total)</span></strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-action text-end">
+                    <a href="/shop" class="btn mr-10 mb-sm-15"><i class="fi-rs-shopping-bag mr-10"></i>Continue Shopping</a>
+                    <a href="/checkout" class="btn "><i class="fi-rs-shuffle mr-10"></i>Checkout</a>
+                </div
             </div>
         </div>
     </div>

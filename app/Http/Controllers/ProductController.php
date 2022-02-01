@@ -93,7 +93,7 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $brands = Brand::all();
-        return view('dashboard.product.edit', compact('product', 'categories', 'brands'));
+        return view('dashboard.product.edit', compact('product','categories', 'brands'));
     }
 
     /**

@@ -40,6 +40,8 @@
     <script src="{{asset('assets/backend/js/vendors/select2.min.js')}}"></script>
     <script src="{{asset('assets/backend/js/vendors/perfect-scrollbar.js')}}"></script>
     <script src="{{asset('assets/backend/js/vendors/jquery.fullscreen.min.js')}}"></script>
+    <script src="{{asset('assets/backend/js/vendors/chart.js')}}"></script>
+    {{-- <script src="{{asset('assets/backend/js/custom-chart.js')}}" type="text/javascript"></script> --}} 
     <!-- Main Script -->
     <script src="{{asset('assets/backend/js/main.js')}}" type="text/javascript"></script>
     @stack('script')

@@ -12,6 +12,9 @@
 </div>
 <section class="pt-50 pb-50">
     <div class="container">
+        @if (session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
         <div class="row">
             <div class="col-lg-12 m-auto">
                 <div class="row">
@@ -87,7 +90,41 @@
                                         <h5 class="mb-0">Orders</h5>
                                     </div>
                                     <div class="card-body">
-                                        <p>You are on order page</p>
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Invoice</th>
+                                                        <th>Date</th>
+                                                        <th>Status</th>
+                                                        <th>Total</th>
+                                                        <th>Tracking Number</th>
+                                                        <th>Actions</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @forelse ($orders as $item)   
+                                                    <tr>
+                                                        <td>{{$item->invoice}}</td>
+                                                        <td>{{convert_date($item->created_at)}}</td>
+                                                        <td>{{$item->status}}</td>
+                                                        <td>@currency($item->total_payment)</td>
+                                                        <td>
+                                                            @if($item->tracking_number == NULL)
+                                                                On progress
+                                                            @else
+                                                                {{$item->tracking_number}}
+                                                            @endif
+                                                        </td>
+                                                        <td><a href="/dashboard/order-detail/{{$item->id}}" class="btn-small d-block">View</a></td>
+                                                    </tr>
+                                                    @empty
+                                                        
+                                                    @endforelse
+                                                    
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
