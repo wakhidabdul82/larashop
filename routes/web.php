@@ -28,6 +28,7 @@ Route::get('/', 'App\Http\Controllers\ShopController@welcome');
 Route::get('/dashboard', 'App\Http\Controllers\CustomerController@index');
 Route::get('/shop', 'App\Http\Controllers\ShopController@index')->name('shop.index');
 Route::get('/shop/{product}', 'App\Http\Controllers\ShopController@show')->name('shop.show');
+Route::get('/search', 'App\Http\Controllers\ShopController@search')->name('search');
 
 Route::get('/admin', 'App\Http\Controllers\DashboardController@welcome');
 Route::middleware('checkRole:admin')->group(function () {

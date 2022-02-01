@@ -8,10 +8,6 @@ use File;
 
 class BrandController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     
     /**
      * Display a listing of the resource.
@@ -31,16 +27,6 @@ class BrandController extends Controller
                     ->addIndexColumn();
         
         return $datatables->make(true);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
     }
 
     /**

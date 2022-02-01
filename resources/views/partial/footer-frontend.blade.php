@@ -30,14 +30,14 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="widget-about font-md mb-md-5 mb-lg-0">
                         <div class="logo logo-width-1 wow fadeIn animated">
-                            <a href="index.html"><img src="{{asset('assets/frontend/imgs/theme/logo.png')}}" alt="logo"></a>
+                            <a href="#"><img src="{{asset('assets/frontend/imgs/theme/logo.png')}}" alt="logo" style="width: 180px"></a>
                         </div>
                         <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
                         <p class="wow fadeIn animated">
-                            <strong>Address: </strong>Semarang City, Central Java, Indonesia 59225
+                            <strong>Address: </strong>Jl MH Thamrin 118, Semarang<br>Jawa Tengah Indonesia 59225
                         </p>
                         <p class="wow fadeIn animated">
-                            <strong>Phone: </strong>+62 812 3456 7890 / +62 898 7654 3210
+                            <strong>Phone: </strong>+62 812 3456 7890
                         </p>
                         <p class="wow fadeIn animated">
                             <strong>Hours: </strong>10:00 - 18:00, Mon - Sat
@@ -83,10 +83,6 @@
                                 <a href="#" class="hover-up mb-sm-4 mb-lg-0"><img class="active" src="{{asset('assets/frontend/imgs/theme/app-store.jpg')}}" alt=""></a>
                                 <a href="#" class="hover-up"><img src="{{asset('assets/frontend/imgs/theme/google-play.jpg')}}" alt=""></a>
                             </div>
-                        </div>
-                        <div class="col-md-4 col-lg-12 mt-md-3 mt-lg-0">
-                            <p class="mb-20 wow fadeIn animated">Secured Payment Gateways</p>
-                            <img class="wow fadeIn animated" src="{{asset('assets/frontend/imgs/theme/payment-method.png')}}" alt="">
                         </div>
                     </div>
                 </div>

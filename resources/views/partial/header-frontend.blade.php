@@ -66,13 +66,13 @@
                 </div>
                 <div class="header-right">
                     <div class="search-style-2">
-                        <form action="#">
+                        <form class="form" method="get" action="{{ route('search') }}" id="search">
                             <select class="select-active">
                                 <option>All Categories</option>
                                 <option>Women's</option>
                                 <option>Men's</option>
                             </select>
-                            <input type="text" placeholder="Search for items...">
+                            <input type="text" name="search" placeholder="Search for items...">
                         </form>
                     </div>
                     <div class="header-action-right">

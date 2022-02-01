@@ -67,6 +67,16 @@
     <script src="{{asset('assets/frontend/js/shop.js')}}"></script>
     <script src="{{asset('assets/frontend/js/custom.js')}}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        $(document).ready(function () {    
+            document.getElementById('body').onkeyup = function(e) {
+                if (e.keyCode === 13) {
+                    document.getElementById('form').submit(); // your form has an id="form"
+                }
+                return true;
+            }
+        });    
+    </script>
     @include('partial.status')
     @stack('script')
 </body>

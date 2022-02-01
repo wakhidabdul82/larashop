@@ -38,7 +38,7 @@
                 </div>
             </li>
             <li class="dropdown nav-item">
-                <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="{{asset('assets/backend/imgs/people/avatar2.jpg')}}" alt="User"></a>
+                <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#" id="dropdownAccount" aria-expanded="false"> <img class="img-xs rounded-circle" src="{{asset('assets/frontend/imgs/page/avatar-8.jpg')}}" alt="User"></a>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownAccount">
                     <a class="dropdown-item" href="#"><i class="material-icons md-perm_identity"></i>Edit Profile</a>
                     <a class="dropdown-item" href="#"><i class="material-icons md-settings"></i>Account Settings</a>

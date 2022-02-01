@@ -100,9 +100,7 @@
                                     <img class="hover-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                 </a>
                             </div>
-                            <div class="product-action-1">
-                                <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="#" tabindex="0"><i class="fi-rs-heart"></i></a>
-                                </div>
+                            
                             @if ($item->brand_id == 1)
                             <div class="product-badges product-badges-position product-badges-mrg">
                                 <span class="hot">{{($item->brands['name'])}}</span>
@@ -156,8 +154,8 @@
             </div>
             <div class="row">
                 <div class="col-lg-3 d-none d-lg-flex">
-                    <div class="banner-img style-2 wow fadeIn animated">
-                        <img src="{{asset('assets/frontend/imgs/banner/banner-9.jpg')}}" alt="">
+                    <div class="banner-img style-1 wow fadeIn animated">
+                        <img src="{{asset('assets/frontend/imgs/banner/banner-10.jpg')}}" alt="">
                         <div class="banner-text">
                             <span>Woman Area</span>
                             <h4 class="mt-5">Save 17% on <br>Clothing</h4>
@@ -180,9 +178,6 @@
                                                     <img class="hover-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                                 </a>
                                             </div>
-                                            <div class="product-action-1">
-                                                <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="#"><i class="fi-rs-heart"></i></a>
-                                            </div>
                                             @if ($item->brand_id == 1)
                                             <div class="product-badges product-badges-position product-badges-mrg">
                                                 <span class="hot">{{($item->brands['name'])}}</span>
@@ -198,21 +193,13 @@
                                             @endif
                                         </div>
                                         <div class="product-content-wrap">
-                                            <div class="product-category">
+                                            <div class="product-category text-center">
                                                 <a href="#">{{$item->categories['name']}}</a>
                                             </div>
-                                            <h2><a href="{{ $item->path() }}">{{Str::limit($item['title'], 12)}}</a></h2>
-                                            <div class="rating-result" title="90%">
-                                                <span>
-                                                    <span>70%</span>
-                                                </span>
-                                            </div>
-                                            <div class="product-price">
+                                            <h2 class="text-center"><a href="{{ $item->path() }}">{{Str::limit($item['title'], 12)}}</a></h2>
+                                            <div class="product-price text-center">
                                                 <span>@currency($item['promo_price'])</span>
                                                 <span class="old-price">@currency($item['regular_price'])</span>
-                                            </div>
-                                            <div class="product-action-1 show">
-                                                <a aria-label="Add To Cart" class="action-btn hover-up" href="#"><i class="fi-rs-shopping-bag-add"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -235,9 +222,6 @@
                                                     <img class="hover-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                                 </a>
                                             </div>
-                                            <div class="product-action-1">
-                                                <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="#"><i class="fi-rs-heart"></i></a>
-                                            </div>
                                             @if ($item->brand_id == 1)
                                             <div class="product-badges product-badges-position product-badges-mrg">
                                                 <span class="hot">{{($item->brands['name'])}}</span>
@@ -253,21 +237,13 @@
                                             @endif
                                         </div>
                                         <div class="product-content-wrap">
-                                            <div class="product-category">
+                                            <div class="product-category text-center">
                                                 <a href="#">{{$item->categories['name']}}</a>
                                             </div>
-                                            <h2><a href="{{ $item->path() }}">{{Str::limit($item['title'], 12)}}</a></h2>
-                                            <div class="rating-result" title="90%">
-                                                <span>
-                                                    <span>70%</span>
-                                                </span>
-                                            </div>
-                                            <div class="product-price">
+                                            <h2 class="text-center"><a href="{{ $item->path() }}">{{Str::limit($item['title'], 12)}}</a></h2>
+                                            <div class="product-price text-center">
                                                 <span>@currency($item['promo_price'])</span>
                                                 <span class="old-price">@currency($item['regular_price'])</span>
-                                            </div>
-                                            <div class="product-action-1 show">
-                                                <a aria-label="Add To Cart" class="action-btn hover-up" href="#"><i class="fi-rs-shopping-bag-add"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -288,9 +264,6 @@
                                                     <img class="hover-img" src="{{asset('product/'.$item['image'])}}" alt="">
                                                 </a>
                                             </div>
-                                            <div class="product-action-1">
-                                                <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="#"><i class="fi-rs-heart"></i></a>
-                                            </div>
                                             @if ($item->brand_id == 1)
                                             <div class="product-badges product-badges-position product-badges-mrg">
                                                 <span class="hot">{{($item->brands['name'])}}</span>
@@ -306,21 +279,13 @@
                                             @endif
                                         </div>
                                         <div class="product-content-wrap">
-                                            <div class="product-category">
+                                            <div class="product-category text-center">
                                                 <a href="#">{{$item->categories['name']}}</a>
                                             </div>
-                                            <h2><a href="{{ $item->path() }}">{{Str::limit($item['title'], 12)}}</a></h2>
-                                            <div class="rating-result" title="90%">
-                                                <span>
-                                                    <span>70%</span>
-                                                </span>
-                                            </div>
-                                            <div class="product-price">
+                                            <h2 class="text-center"><a href="{{ $item->path() }}">{{Str::limit($item['title'], 12)}}</a></h2>
+                                            <div class="product-price text-center">
                                                 <span>@currency($item['promo_price'])</span>
                                                 <span class="old-price">@currency($item['regular_price'])</span>
-                                            </div>
-                                            <div class="product-action-1 show">
-                                                <a aria-label="Add To Cart" class="action-btn hover-up" href="#"><i class="fi-rs-shopping-bag-add"></i></a>
                                             </div>
                                         </div>
                                     </div>

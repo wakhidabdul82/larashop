@@ -41,4 +41,12 @@ class ShopController extends Controller
         $categories = Category::all();
         return view('shop.product', compact('product', 'mightLike', 'categories'));
     }
+
+    public function search(Request $request)
+    {
+        $keyword = $request->search;
+        $products = Product::with('categories', 'brands')->where('title', 'like', "%" . $keyword . "%")->paginate(5);
+        $categories = Category::all();
+        return view('shop.search', compact('products','categories'));
+    }
 }
